@@ -1,4 +1,4 @@
-# The 5 agents of the Migration Team
+# The 6 agents of the Migration Team
 
 The agents run in fixed sequence. Each one reads what the previous produced and adds its own artifact. `/reversa-migrate` orchestrates everything.
 
@@ -7,7 +7,7 @@ The agents run in fixed sequence. Each one reads what the previous produced and 
 ## Pipeline
 
 ```
-Paradigm Advisor → Curator → Strategist → Designer → Inspector
+Paradigm Advisor → Curator → Strategist → Designer → Screen Translator → Inspector
 ```
 
 There is a human review pause between agents. Default mode is interactive.
@@ -58,11 +58,26 @@ Does not naively decompose 1-to-1: identifies real bounded contexts and justifie
 
 ---
 
-## 5. Inspector
+## 5. Screen Translator
+
+**Command:** `/reversa-screen-translator` (usually invoked by `/reversa-migrate`, between Designer and Inspector)
+
+Translates legacy screens into specs the coder can execute, without forcing them to invent layout, colors, copy or hierarchy. Operates in **two phases**:
+
+- **Phase 1:** detects source and target platforms, presents the three translation modes (literal, modernized, hybrid) with concrete trade-offs, and forces a human decision. Produces `screen_modernization_decision.md`.
+- **Phase 2:** generates `target_screens.md` (with YAML embedded per screen) and `screen_deviation_log.md`. When the legacy oracle runs, also emits golden files under `_reversa_sdd/screens/golden/` plus a `manifest.yaml` the Inspector consumes for visual parity tests.
+
+In projects without UI (batch jobs, pure APIs, daemons) emits `mode: skipped` and the Inspector skips visual parity.
+
+**Produces:** `screen_modernization_decision.md`, `target_screens.md`, `screen_deviation_log.md`, optional `_reversa_sdd/screens/golden/*` + `manifest.yaml`.
+
+---
+
+## 6. Inspector
 
 **Command:** `/reversa-inspector`
 
-Defines how to prove the new system is behaviorally equivalent to the legacy where it matters. Adapts criteria to the paradigm: a sync → event-driven shift requires coverage of message ordering, idempotency, and eventual consistency.
+Defines how to prove the new system is behaviorally equivalent to the legacy where it matters. Adapts criteria to the paradigm: a sync → event-driven shift requires coverage of message ordering, idempotency, and eventual consistency. Reads the golden files emitted by Screen Translator (when present) to build visual parity tests.
 
 **Produces:** `parity_specs.md` and Gherkin `.feature` files for each critical flow.
 

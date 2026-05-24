@@ -129,6 +129,7 @@ plugins:
             Reversa Docs: Reversa Docs
             Reversa New: Reversa New
             Reversa Forward: Reversa Forward
+            Reconstructor: Reconstructor
         - locale: es
           name: Español
           build: true
@@ -187,6 +188,7 @@ plugins:
             Reversa Docs: Reversa Docs
             Reversa New: Reversa New
             Reversa Forward: Reversa Forward
+            Reconstructor: Reconstructor
 
 nav:
   - Home: index.md
@@ -213,6 +215,7 @@ nav:
       - Visor: agentes/visor.md
       - Data Master: agentes/data-master.md
       - Design System: agentes/design-system.md
+      - Reconstructor: agentes/reconstructor.md
     - Code New Project Agents:
       - Overview: newproject/index.md
       - The greenfield agents: newproject/agentes.md

@@ -119,7 +119,7 @@ Reconnaissance  Excavation  Interpretation  Generation  Review
                                 Architect
 ```
 
-Independent agents (run at any phase): **Visor**, **Data Master**, **Design System**, **Soul Extractor**, **Tracer**, **Chronicler**.
+Independent agents (run at any phase): **Visor**, **Data Master**, **Design System**, **Soul Extractor**, **Reconstructor**.
 
 Once the specs exist, you can move forward in three directions, depending on the goal:
 
@@ -166,12 +166,12 @@ These run the main `/reversa` pipeline.
 | Agent | Role |
 |-------|------|
 | **Reviewer** | Reviews specs, finds inconsistencies, and validates gaps with the user |
-| **Tracer** | Dynamic analysis: resolves gaps via logs, tracing, and real data (read-only) |
 | **Visor** | Documents the interface from screenshots, without needing the system to be running |
 | **Data Master** | Complete database analysis: DDL, migrations, ORM, ERD, triggers, procedures |
 | **Design System** | Extracts design tokens: colors, typography, spacing, themes, and components |
 | **Soul Extractor** | Produces a single executive Spec (`soul.md`) with purpose, core entities and founding decisions, useful right after Scout |
-| **Chronicler** | Documents code changes during development sessions |
+| **Agents Help** | Explains every Reversa agent with analogies, useful for newcomers |
+| **Reconstructor** | Generates a bottom-up reconstruction plan from the specs and implements one task at a time, preserving tokens. Activation: `/reversa-reconstructor` |
 
 ### Code New Project Agents (greenfield)
 
@@ -204,7 +204,16 @@ The bridge from specs to running code. Pipeline: `requirements → clarify → q
 
 ### Migration Team
 
-Use after `/reversa` when the goal is to rebuild the legacy on a modern stack. Activate with `/reversa-migrate`. Pipeline: `Paradigm Advisor → Curator → Strategist → Designer → Inspector`, with a human review pause between agents. Every artifact lands in `_reversa_sdd/migration/`.
+Use after `/reversa` when the goal is to rebuild the legacy on a modern stack. Activate with `/reversa-migrate`. Pipeline: `Paradigm Advisor → Curator → Strategist → Designer → Screen Translator → Inspector`, with a human review pause between agents. Every artifact lands in `_reversa_sdd/migration/`.
+
+| Agent | Role |
+|-------|------|
+| **Paradigm Advisor** | Detects the legacy paradigm, infers the target paradigm, forces a conscious user decision |
+| **Curator** | Decides rule by rule: MIGRATE, DISCARD or HUMAN DECISION |
+| **Strategist** | Evaluates Strangler Fig, Big Bang, Parallel Run, Branch by Abstraction and recommends one |
+| **Designer** | Drafts target architecture, domain model, data model and data migration plan |
+| **Screen Translator** | Translates legacy screens into executable specs in 2 phases (mode decision + spec generation), emitting golden files for the Inspector when an oracle is available |
+| **Inspector** | Defines how to prove the new system is behaviorally equivalent to the legacy, with Gherkin parity specs |
 
 ### Pricing and Size Team
 
@@ -253,7 +262,6 @@ _reversa_sdd/
 ├── confidence-report.md      # Confidence report 🟢🟡🔴
 ├── gaps.md                   # Identified gaps
 ├── questions.md              # Questions for human validation
-├── dynamic.md                # Dynamic analysis findings (Tracer)
 ├── sdd/                      # Specs per component
 │   └── [component].md
 ├── openapi/                  # API specs (if applicable)

@@ -1,6 +1,6 @@
 # Schema del brief de migración
 
-`migration_brief.md` es el primer artefacto. Captura el criterio de migración antes de que cualquier agente corra. Es consumido por los cinco agentes del Equipo de Migración.
+`migration_brief.md` es el primer artefacto. Captura el criterio de migración antes de que cualquier agente corra. Es consumido por los seis agentes del Equipo de Migración.
 
 ---
 

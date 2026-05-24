@@ -38,7 +38,10 @@ Brief (entrevista)
 [4] Designer            → desenha a arquitetura, domain model e plano de dados
    │
    ▼
-[5] Inspector           → define provas de equivalência comportamental
+[5] Screen Translator   → traduz as telas legadas em specs (modos + golden files)
+   │
+   ▼
+[6] Inspector           → define provas de equivalência comportamental
    │
    ▼
 handoff.md              → entrada para o agente de codificação
@@ -104,6 +107,7 @@ Artefatos produzidos pelo Time de Migração:
 | `target_business_rules.md` + `discard_log.md` | Curator |
 | `migration_strategy.md` + `risk_register.md` + `cutover_plan.md` | Strategist |
 | `target_architecture.md` + `target_domain_model.md` + `target_data_model.md` + `data_migration_plan.md` | Designer |
+| `screen_modernization_decision.md` + `target_screens.md` + `screen_deviation_log.md` (+ `screens/golden/*` se o oráculo rodar) | Screen Translator |
 | `parity_specs.md` + `parity_tests/*.feature` | Inspector |
 | `handoff.md` | Orquestrador |
 
@@ -111,7 +115,7 @@ Artefatos produzidos pelo Time de Migração:
 
 ## Próximos passos
 
-- [Os 5 agentes](agentes.md): o que cada um faz, inputs e outputs.
+- [Os 6 agentes](agentes.md): o que cada um faz, inputs e outputs.
 - [Mudança de paradigma](paradigma.md): por que paradigma importa e como o Paradigm Advisor trata.
 - [Estratégias de migração](estrategias.md): catálogo das 4 estratégias.
 - [Schema do brief](brief.md): perguntas e formato do `migration_brief.md`.

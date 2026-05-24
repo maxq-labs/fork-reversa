@@ -1,6 +1,6 @@
 # Schema do brief de migração
 
-O `migration_brief.md` é o primeiro artefato. Ele captura o critério de migração antes de qualquer agente rodar. É consumido pelos cinco agentes do Time de Migração.
+O `migration_brief.md` é o primeiro artefato. Ele captura o critério de migração antes de qualquer agente rodar. É consumido pelos seis agentes do Time de Migração.
 
 ---
 

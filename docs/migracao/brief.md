@@ -1,6 +1,6 @@
 # Migration brief schema
 
-`migration_brief.md` is the first artifact. It captures the migration criteria before any agent runs. It is consumed by the five agents of the Migration Team.
+`migration_brief.md` is the first artifact. It captures the migration criteria before any agent runs. It is consumed by the six agents of the Migration Team.
 
 ---
 

@@ -38,7 +38,10 @@ Brief (interview)
 [4] Designer            → drafts target architecture, domain model, data plan
    │
    ▼
-[5] Inspector           → defines proofs of behavioral equivalence
+[5] Screen Translator   → translates legacy screens into specs (modes + golden files)
+   │
+   ▼
+[6] Inspector           → defines proofs of behavioral equivalence
    │
    ▼
 handoff.md              → input for the coding agent
@@ -104,6 +107,7 @@ Artifacts produced by the Migration Team:
 | `target_business_rules.md` + `discard_log.md` | Curator |
 | `migration_strategy.md` + `risk_register.md` + `cutover_plan.md` | Strategist |
 | `target_architecture.md` + `target_domain_model.md` + `target_data_model.md` + `data_migration_plan.md` | Designer |
+| `screen_modernization_decision.md` + `target_screens.md` + `screen_deviation_log.md` (+ `screens/golden/*` if oracle runs) | Screen Translator |
 | `parity_specs.md` + `parity_tests/*.feature` | Inspector |
 | `handoff.md` | Orchestrator |
 
@@ -111,7 +115,7 @@ Artifacts produced by the Migration Team:
 
 ## Next steps
 
-- [The 5 agents](agentes.md): what each one does, inputs and outputs.
+- [The 6 agents](agentes.md): what each one does, inputs and outputs.
 - [Paradigm shift](paradigma.md): why paradigm matters and how the Paradigm Advisor handles it.
 - [Migration strategies](estrategias.md): catalog of the 4 strategies.
 - [Brief schema](brief.md): questions and format of `migration_brief.md`.

@@ -54,7 +54,7 @@ O menu de agentes lista times, não agentes individuais. O usuário escolhe na g
 4. `Pricing and Size Agents`
 5. `Translators N8N->Specs->Python` (desmarcado por padrão)
 
-O `Reversa Agents Core` é renderizado como um separator cinza não selecionável que visualmente mostra `(*)` como se fosse um item marcado e desabilitado: o usuário enxerga, sabe que está incluído, e o cursor pula por cima. Ele contém todos os agentes de descoberta (Reversa, Scout, Archaeologist, Detective, Architect, Writer, Reviewer, Visor, Data Master, Design System, Agents Help, Reconstructor), então o antigo grupo "Discovery Add-ons" deixou de existir como conceito separado. Mesmo o menu escondendo o detalhe por agente, o resumo final da instalação continua quebrando a contagem por time (Discovery, Migration, Code Forward, Translators, Pricing).
+O `Reversa Agents Core` é renderizado como um separator cinza não selecionável que visualmente mostra `(*)` como se fosse um item marcado e desabilitado: o usuário enxerga, sabe que está incluído, e o cursor pula por cima. Ele contém todos os agentes de descoberta (Reversa, Scout, Soul Extractor, Archaeologist, Detective, Architect, Writer, Reviewer, Visor, Data Master, Design System, Agents Help, Reconstructor), então o antigo grupo "Discovery Add-ons" deixou de existir como conceito separado. Mesmo o menu escondendo o detalhe por agente, o resumo final da instalação continua quebrando a contagem por time (Discovery, Migration, Code Forward, Translators, Pricing).
 
 ---
 

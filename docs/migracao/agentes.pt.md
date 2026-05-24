@@ -1,4 +1,4 @@
-# Os 5 agentes do Time de Migração
+# Os 6 agentes do Time de Migração
 
 Os agentes rodam em sequência fixa. Cada um lê o que os anteriores produziram e adiciona um artefato. O `/reversa-migrate` orquestra tudo.
 
@@ -7,7 +7,7 @@ Os agentes rodam em sequência fixa. Cada um lê o que os anteriores produziram 
 ## Pipeline
 
 ```
-Paradigm Advisor → Curator → Strategist → Designer → Inspector
+Paradigm Advisor → Curator → Strategist → Designer → Screen Translator → Inspector
 ```
 
 Entre cada agente há uma pausa para revisão humana. O modo padrão é interativo.
@@ -58,11 +58,26 @@ Não decompõe ingenuamente 1-para-1: identifica bounded contexts reais e justif
 
 ---
 
-## 5. Inspector
+## 5. Screen Translator
+
+**Comando:** `/reversa-screen-translator` (geralmente invocado pelo `/reversa-migrate`, entre Designer e Inspector)
+
+Traduz as telas do legado em specs que o codificador executa, sem precisar inventar layout, cores, textos ou hierarquia. Opera em **duas fases**:
+
+- **Fase 1:** detecta a plataforma de origem e a alvo, apresenta os três modos de tradução (literal, modernizado, híbrido) com trade-offs concretos, e força decisão humana. Produz `screen_modernization_decision.md`.
+- **Fase 2:** gera `target_screens.md` (com YAML embutido por tela) e `screen_deviation_log.md`. Quando o oráculo legado roda, emite golden files em `_reversa_sdd/screens/golden/` mais um `manifest.yaml` que o Inspector consome para testes de paridade visual.
+
+Em projetos sem UI (batch, API puro, daemons) emite `mode: skipped` e o Inspector pula a paridade visual.
+
+**Produz:** `screen_modernization_decision.md`, `target_screens.md`, `screen_deviation_log.md`, e opcionalmente `_reversa_sdd/screens/golden/*` + `manifest.yaml`.
+
+---
+
+## 6. Inspector
 
 **Comando:** `/reversa-inspector`
 
-Define como provar que o sistema novo é comportamentalmente equivalente ao legado nos pontos críticos. Adapta os critérios ao paradigma: mudança síncrono → event-driven exige cobertura de ordem de mensagens, idempotência e consistência eventual.
+Define como provar que o sistema novo é comportamentalmente equivalente ao legado nos pontos críticos. Adapta os critérios ao paradigma: mudança síncrono → event-driven exige cobertura de ordem de mensagens, idempotência e consistência eventual. Lê os golden files emitidos pelo Screen Translator (quando existirem) para construir testes de paridade visual.
 
 **Produz:** `parity_specs.md` e arquivos `.feature` em Gherkin para cada fluxo crítico.
 
