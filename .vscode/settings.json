@@ -1,0 +1,47 @@
+{
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/.venv": true
+  },
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.rulers": [
+    100
+  ],
+  "editor.tabSize": 4,
+  "[markdown]": {
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    },
+    "files.trimTrailingWhitespace": false
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.autoIndent": "advanced"
+  },
+  "[json]": {
+    "editor.tabSize": 2
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "workbench.editorAssociations": {
+    "*.md": "vscode.markdown.preview.editor"
+  },
+  "workbench.colorCustomizations": {
+    "editorIndentGuide.background1": "#f4090940",
+    "editorIndentGuide.activeBackground1": "#f40909ff",
+    "tree.indentGuidesStroke": "#f40909ff",
+  },
+  "workbench.tree.indent": 28,
+  "workbench.tree.renderIndentGuides": "always"
+}
